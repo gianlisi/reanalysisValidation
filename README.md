@@ -1,5 +1,7 @@
 # reanalysisValidation
 
-Compare timeseries of temperature from weather stations to the NCEP/NCAR reanalysis at a given location. 
+Compare temperature timeseries from weather stations and the NCEP/NCAR reanalysis. 
 
-The Global Basic Observing Network (GBON) weather station closest to the specified location is used for comparison.
+The target location is given by its latitude and longitude coordinates. The closest Global Basic Observing Network (GBON) weather station and reanalysis grid point are used.
+
+Written using node.js, python and HTML.  
