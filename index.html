@@ -45,9 +45,9 @@ body {
     <script>
       function startProcessing(){
 
-	      const year = document.getElementById("year").value
-	      const lon = document.getElementById("longitude").value
-	      const lat = document.getElementById("latitude").value
+	      const year = document.getElementById("year").value;
+	      const lon = document.getElementById("longitude").value;
+	      const lat = document.getElementById("latitude").value;
 
 	      const urlghcnd= 'http://localhost:3000/ghcnd?year='+year+'&lat='+lat+'&lon='+lon;
 	      const urlncep = 'http://localhost:3000/ncep?year='+year+'&lat='+lat+'&lon='+lon;
@@ -62,12 +62,12 @@ body {
 		.then( (json) => 
 			{ 
 				document.getElementById('console').innerHTML='Done. Reload the page to try again.';
-				const mychart = plotTimeSeries(json,'wind speed','chart') ;
+				const mychart = plotTimeSeries(json,'wind speed','chart');
 			      }
 		      )
 		  .catch(error => { 
-			  console.error(error.message) ;
-			  document.getElementById('console').innerHTML=error.message;
+			  console.error(error.message);
+			  document.getElementById('console').innerHTML="An error has occurred. Check the JavaScript console for more information";
 			});
 
 	    }

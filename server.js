@@ -1,10 +1,10 @@
 //start express web server
-var express = require('express');
-var cors = require('cors') // Cross-Origin Resource Sharing
-var app = express();
-app.use(cors())
+let express = require('express');
+let cors = require('cors'); // Cross-Origin Resource Sharing
+let app = express();
+app.use(cors());
 
-var port = 3000;
+let port = 3000;
 
 app.listen(port, function () {
     console.log(`server running on http://localhost:${port}`);
@@ -13,17 +13,17 @@ app.listen(port, function () {
 
 // select ncep reanalysis subset
 app.get('/ncep', function (req, res) {
-  var spawn = require('child_process').spawnSync;
-  var process = spawn('python', ['./ncep.py', req.query.year, req.query.lat, req.query.lon, ] );
-  var obj = JSON.parse(process.stdout)
+  let spawn = require('child_process').spawnSync;
+  let process = spawn('python', ['./ncep.py', req.query.year, req.query.lat, req.query.lon, ] );
+  let obj = JSON.parse(process.stdout)
   res.send(obj.data)
 });
 
 // ghcnd observations
 app.get('/ghcnd', function (req, res) {
-  var spawn = require('child_process').spawnSync;
-  var process = spawn('python', ['./ghcnd.py', req.query.year, req.query.lat, req.query.lon, ] );
-  var obj = JSON.parse(process.stdout)
+  let spawn = require('child_process').spawnSync;
+  let process = spawn('python', ['./ghcnd.py', req.query.year, req.query.lat, req.query.lon, ] );
+  let obj = JSON.parse(process.stdout)
   res.send(obj.data)
 });
 
